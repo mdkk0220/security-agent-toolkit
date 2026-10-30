@@ -5,7 +5,7 @@
 ![Flask](https://img.shields.io/badge/Webhook-Flask-000000?logo=flask&logoColor=white)
 ![Docker](https://img.shields.io/badge/Lab-Docker-2496ED?logo=docker&logoColor=white)
 
-**보안 관제 자동화 에이전트와, 그것을 만들기까지 공부한 네트워크 · 접근 제어 실습을 모은 저장소입니다.**
+**교육과정 실습으로 만든 보안 관제 자동화 에이전트와, 함께 공부한 네트워크 · 접근 제어 실습을 모은 저장소입니다.**
 
 > 핵심 원칙: **LLM은 고르기만 하고, 실행은 코드가 하고, 되돌리기 어려운 결정은 사람이 합니다.**
 
@@ -24,7 +24,7 @@
 
 ## ⭐ agent_core — 보안 관제 자동화 에이전트
 
-로그 수집 → 정규화 → 룰 탐지 → LLM 요약 · 판단 → 도구 실행 → 사람 승인 → 보고서 · 알림까지, 보안 관제의 한 사이클을 파이썬으로 구현했습니다.
+로그 수집 → 정규화 → 룰 탐지 → LLM 요약 · 판단 → 도구 실행 → 사람 승인 → 보고서 · 알림까지, 보안 관제의 한 사이클을 파이썬으로 구현한 과정 실습입니다. (제공받은 부분과 직접 한 부분은 [agent_core/README.md](agent_core/README.md)에 구분해 적었습니다.)
 
 ```mermaid
 flowchart LR
