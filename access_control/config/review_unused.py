@@ -1,4 +1,5 @@
 from datetime import datetime                                    # 글자를 시각으로 바꾸는 데 쓴다
+from pathlib import Path
 from config_loader import load_json                              # 10/22(목)에 만든 안전한 읽기 함수를 불러온다
 from exception_policy import TIME_FORMAT                         # 시각 글자의 형식("%Y-%m-%d %H:%M")을 불러온다
 
@@ -6,7 +7,7 @@ from exception_policy import TIME_FORMAT                         # 시각 글자
 def load_last_used():                                            # 사용 이력 파일을 읽어 「마지막 사용 시각」 딕셔너리를 만드는 함수
     """「사용자:권한」 글자를 키로, 마지막으로 쓴 시각 글자를 값으로 하는 딕셔너리를 리턴한다."""
     last_used_map = {}                                           # 빈 딕셔너리로 시작한다
-    for log in load_json("config/access_log.json", []):          # 사용 이력을 한 건씩 꺼낸다(파일이 없으면 빈 목록)
+    for log in load_json(Path(__file__).with_name("access_log.json"), []):  # 사용 이력을 한 건씩 꺼낸다(파일이 없으면 빈 목록)
         key = f"{log['user']}:{log['permission']}"               # 「사용자:권한」 글자를 키로 만든다
         last_used_map[key] = log["last_used"]                    # 그 키의 값에 마지막 사용 시각 글자를 담는다
     return last_used_map                                         # 딕셔너리를 리턴한다
