@@ -75,8 +75,20 @@ python test_agent_core.py   # 단위 테스트
 
 ## 🌐 network_zt — 네트워크 · 제로트러스트 학습
 
-| 주제 | 주요 자료 |
+| 일차 | 주제 |
 |---|---|
+| Day 1 | OSI 7계층 · TCP와 Wireshark 패킷 분석 |
+| Day 2 | IP · 서브넷 설계 · 스위치 · 라우터 · VLAN |
+| Day 3 | DNS · 수상한 도메인(DGA) 탐지 |
+| Day 4 | VPN · 방화벽 |
+| Day 5 | 클라우드 구성도 · 서비스 품질 |
+| Day 6 | 제로트러스트 · 접근 판정 점수 · Docker 기초 |
+| Day 7 | 정책 로그 · 규칙 튜닝 · Docker Compose |
+| Day 8 | 장애 원인 지도 · 회고 |
+
+파일은 [`network_zt/`](network_zt)에 `day01_` ~ `day08_` 또는 날짜(`261012_` 등) 접두어로 정리했습니다. 정리 노트(`.md`)와 실습 코드(`.py`)가 함께 있습니다.
+
+---|---|
 | OSI 7계층 · TCP와 Wireshark 패킷 분석 | `day01_packet_analysis.md`, `261012_am_osi_layers.md`, `261012_pm_tcp_wireshark.md` |
 | IP · 서브넷 설계 · 스위치 · 라우터 · VLAN | `day02_subnet_design.md`, `261013_am_ip_subnet.md`, `261013_pm_switch_router_vlan.md` |
 | DNS · 수상한 도메인(DGA) 탐지 | `day03_am_dns.md`, `day03_pm_dns_suspicious.md`, `day03_*.py` |
