@@ -110,4 +110,5 @@ python test_agent_core.py   # 단위 테스트
 
 ## 📝 참고
 
+- `*_report.md` 파일(`access_control/config/` 8개, `network_zt/` 12개)은 교시별 리포트입니다. 질문은 수업에서 주어졌고, `답:` 뒤의 내용은 직접 쓴 것입니다.
 - 무료 Gemini 키는 호출 횟수 제한이 있어, `429` 오류가 나면 1분 뒤 다시 실행하세요.

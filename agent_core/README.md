@@ -17,6 +17,7 @@
 |---|---|
 | 제공받은 것 | 기본 파일 구성과 뼈대 코드 (`pipeline.py`, `llm_client.py`, `notifier.py`, `event_summarizer.py`, `report_generator.py`, `alert_server.py`, `tool_router.py`) |
 | 이 저장소에 남긴 것 | 날짜별 실습 노트북 13개(아래 "개발 기록"), 실습용 설정 파일과 로그 예시 |
+| 내가 직접 쓴 것 | 교시별 리포트 `*_report.md` 20개(`access_control/config/` 8개, `network_zt/` 12개). 수업이 낸 질문은 제공받았고, 각 질문의 **답과 이유는 내가 직접 썼다** |
 
 핵심 원칙은 과정에서 배운 설계 방식입니다. 이 저장소는 그 방식을 실습하고 확장해 가는 기록입니다. 직접 고치고 추가한 코드는 확인되는 대로 이 표에 더합니다.
 
