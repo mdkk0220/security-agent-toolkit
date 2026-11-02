@@ -75,7 +75,7 @@ flowchart LR
 
 ```bash
 git clone https://github.com/mdkk0220/security-agent-toolkit.git
-cd security-agent-toolkit/agent_core
+cd security-agent-toolkit/agent_core_1
 pip install requests flask
 ```
 
@@ -137,7 +137,7 @@ high 가 3건 이상이면 「한눈에 보기」 맨 위에 경고 줄이 자�
 
 ### 모듈
 ```
-agent_core/
+agent_core_1/
 ├── pipeline.py            # 진입점 — 설정 → 보고서 → 건수 → 알림
 ├── notifier.py            # 설정 검사 · 승인 필요 판정 · 알림 (실패해도 멈추지 않음)
 ├── llm_client.py          # LLM 호출 · 답을 JSON 으로 읽기
