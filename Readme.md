@@ -78,52 +78,39 @@ python test_agent_core.py   # 단위 테스트
 
 ## 🌐 network_zt_2 — 네트워크 · 제로트러스트
 
-패킷 한 개를 읽는 데서 시작해, 제로트러스트 정책을 세우고 그 로그를 판정하는 데까지 8일 동안 순서대로 쌓았습니다.
+8일 동안 패킷 분석부터 제로트러스트 정책 로그 판정까지 배운 내용과 실습 코드입니다.
+
+### 배운 순서
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph S1["① 기초 · Day 1~2"]
+        direction LR
         A["OSI 7계층 · TCP<br/>Wireshark 패킷 분석"] --> B["IP · 서브넷 설계<br/>스위치 · 라우터 · VLAN"]
     end
     subgraph S2["② 서비스와 경계 · Day 3~5"]
+        direction LR
         C["DNS<br/>수상한 도메인 탐지"] --> D["VPN · 방화벽"] --> E["클라우드 구성도<br/>서비스 품질"]
     end
     subgraph S3["③ 제로트러스트와 운영 · Day 6~8"]
+        direction LR
         F["제로트러스트<br/>접근 판정 점수"] --> G["정책 로그<br/>규칙 튜닝"] --> H["거부 직후 허용 탐지<br/>이슈 도식 · 회고"]
     end
-    B --> C
-    E --> F
+    S1 --> S2 --> S3
 ```
 
-판정 실습 코드는 모두 로그를 읽고 규칙마다 점수를 더한 다음, 기준값으로 판정하고 결과를 집계하는 흐름입니다.
+### 일차별로 한 것
 
-```mermaid
-flowchart LR
-    L["로그 · 요청 기록"] --> R["규칙별 점수 더하기"]
-    R --> T{"기준값 넘음?"}
-    T -- 예 --> X["의심 · 거부"]
-    T -- 아니오 --> O["정상 · 허용"]
-    X --> M["집계 · 비교"]
-    O --> M
-```
-
-| 일차 | 입력 | 규칙 | 결과 |
-|---|---|---|---|
-| Day 3 DNS | 도메인 이름 · 응답 코드 | 이름 10글자 이상 +1, TLD가 top · xyz · tk +1, NXDOMAIN +2 | 3점 이상이면 의심 |
-| Day 6 제로트러스트 | 직원별 MFA · 기기 점검 · 초과 권한 | MFA · 기기 · 최소권한 · 세그멘테이션 · 위험 기반 인증 각 20점 | 회사 성숙도 총점 /100 |
-| Day 7 규칙 튜닝 | 한 주 요청 기록 | 해외 접속 +30, 대량 조회 기준 이상 +점수 | 기준안 4개(현재 · A · B · C)별 오탐 · 미탐 수 비교 |
-| Day 8 이슈 탐지 | 정책 로그(JSON) | 같은 계정이 거부 후 10분 안에 허용 | 거부 직후 허용 목록 · 거부 사유별 건수 |
-
-| 일차 | 주제 | 주요 파일 |
+| 일차 | 한 것 | 주요 파일 |
 |---|---|---|
-| Day 1 (10/12) | OSI 7계층 · TCP와 Wireshark 패킷 분석 | `day01_packet_analysis.md` · `261012_am_osi_layers.md` · `261012_pm_tcp_wireshark.md` |
-| Day 2 (10/13) | IP · 서브넷 설계 · 스위치 · 라우터 · VLAN | `day02_subnet_design.md` · `261013_am_ip_subnet.md` · `261013_pm_switch_router_vlan.md` |
-| Day 3 | DNS · 수상한 도메인(DGA) 탐지 | `day03_am_dns.md` · `day03_pm_dns_suspicious.md` · `day03_*.py` |
-| Day 4 | VPN · 방화벽 | `day04_am_vpn.md` · `day04_pm_firewall.md` |
-| Day 5 | 클라우드 구성도 · 서비스 품질 | `day05_am_cloud_diagram.md` · `day05_pm_quality.md` |
-| Day 6 | 제로트러스트 · 접근 판정 점수 · Docker 기초 | `day06_am_zero_trust.md` · `day06_4-1_zt_score.py` · `day06_zt_scenario.md` · `day06_pm_docker_basics.md` |
-| Day 7 | 정책 로그 · 규칙 튜닝 · Docker Compose | `day07_am_policy_log.md` · `day07_4-1_rule_tuning.py` · `day07_customer_report.md` · `day07_docker/` |
-| Day 8 (10/21) | 서버 알림 판정 · 거부 직후 허용 탐지 · 이슈 도식 · 회고 | `day08_am_issue_map.md` · `day08_3-1_deny_then_allow.py` · `day08_issue_diagram.md` · `day08_retrospective.md` |
+| Day 1 (10/12) | OSI 7계층과 TCP 연결 과정을 배우고, Wireshark로 패킷을 잡아 분석 보고서를 썼습니다. | `day01_packet_analysis.md` |
+| Day 2 (10/13) | IP 주소와 서브넷 나누는 법, 스위치 · 라우터 · VLAN을 배우고 서브넷 설계서를 썼습니다. | `day02_subnet_design.md` |
+| Day 3 | DNS가 이름을 IP로 바꾸는 과정을 보고, 수상한 도메인을 점수로 가리는 코드를 짰습니다. 이름이 10글자 이상이면 +1, TLD가 top · xyz · tk면 +1, 없는 도메인(NXDOMAIN)이면 +2를 주고 3점 이상을 의심으로 봅니다. | `day03_pm_dns_suspicious.md`<br/>`day03_7-1_judge_new.py` |
+| Day 4 | VPN 터널 · 암호화와 접속 로그를 보고, 방화벽 규칙의 순서와 허용 목록을 배워 방화벽 규칙서를 썼습니다. | `day04_am_vpn.md`<br/>`day04_pm_firewall.md` |
+| Day 5 | 클라우드 망 구성도를 읽고 그렸고, 지연 · 지터 · 손실과 tracert로 네트워크 품질을 진단했습니다. | `day05_am_cloud_diagram.md`<br/>`day05_pm_quality.md` |
+| Day 6 | A사 제로트러스트 적용 방안을 썼습니다. 직원 12명 데이터로 MFA · 기기 점검 · 최소권한 · 세그멘테이션 · 위험 기반 인증을 항목당 20점씩 매겨 100점 만점 점수를 계산했습니다. 오후에는 Docker 기초를 배웠습니다. | `day06_zt_scenario.md`<br/>`day06_4-1_zt_score.py` |
+| Day 7 | 정책 로그를 읽고, 해외 접속 · 대량 조회 점수 기준을 네 가지로 바꿔 가며 정상 요청을 막는 경우(오탐)와 위험 요청을 놓치는 경우(미탐)를 세어 비교했습니다. 정산 포털 로그 점검 결과를 고객용 보고서로 정리했고, 오후에는 Docker Compose를 배웠습니다. | `day07_4-1_rule_tuning.py`<br/>`day07_customer_report.md` |
+| Day 8 (10/21) | 같은 계정이 거부된 뒤 10분 안에 허용된 접속을 찾는 코드를 짰습니다. 이상한 페이지가 열리는 이슈를 증상 → 진단 → 원인 가설 순서로 도식으로 그리고, 2과목 회고를 썼습니다. | `day08_3-1_deny_then_allow.py`<br/>`day08_issue_diagram.md`<br/>`day08_retrospective.md` |
 
 `warmup_*.py` · `ping_check.py` · `addr_kind.py`는 수업 시작 전 몸풀기 코드입니다.
 
@@ -131,54 +118,56 @@ flowchart LR
 
 ## 🔐 access_control_3 — 접근통제
 
-A사 계정 · 자원을 예로, 권한 판정부터 회수 · 주간 보고까지 접근통제의 한 주기를 단계별로 만들었습니다. 앞 단계 파일은 고치지 않고 새 파일로 쌓아 갔습니다.
+A사 계정 · 자원을 예로 들어 권한 판정, 회수, 주간 보고까지 만들었습니다. 앞 단계 파일은 고치지 않고 새 파일로 쌓아 갔고, 사용자 · 권한 데이터는 모두 실습용 가상 데이터입니다.
 
-| 일차 | 주제 | 주요 파일 |
+### 일차별로 한 것
+
+| 일차 | 한 것 | 주요 파일 |
 |---|---|---|
-| Day 1 (10/21) | 인증과 인가 · RBAC 권한 판정 · 기록으로 권한 점검 | `rbac.py` · `access_log.py` · `day01_7-1_audit.py` · `config/users.json` · `config/roles.json` |
-| Day 2 (10/22) | 역할 부여 · 회수 · 기간이 정해진 예외 권한 · 설정이 고장 나도 거부 · 테스트 케이스 | `policy.py` · `exception_policy.py` · `config_loader.py` · `config/exceptions.json` · `day02_pm_tests.md` |
-| Day 3 (10/23) | 권한 요청서 · 승인과 반려 · 정책 확인 후 부여 | `day03_am_request.md` |
-| Day 4 (10/29) | 접근 점검 · 필요 없어진 권한 찾기 · 과다권한 리포트 · 회수 제외 | `review_list.py` · `review_rules.py` · `review_unused.py` · `overprivilege.py` · `report_exclude.py` |
-| Day 5 (10/30) | 권한 회수 계획 · 승인 · 실행 · 이력 · 조건기반 정책 · 판정 서버 | `revoke_plan.py` · `revoke_approve.py` · `revoke.py` · `conditional.py` · `access_server.py` |
-| Day 6 (11/2) | 점검 체크리스트 · 로그 집계 · 주간 보고서 | `checklist.py` · `log_summary.py` · `weekly_report.py` · `access_control_weekly_report_2026-11-02.md` |
+| Day 1 (10/21) | 사용자 · 역할 · 권한 파일을 만들고, 역할(RBAC)로 허용 · 거부를 정하는 판정 함수를 짰습니다. 지난 접속 기록을 이 함수로 다시 판정해 한 번도 안 쓰인 권한을 찾았습니다. | `rbac.py`<br/>`day01_7-1_audit.py` |
+| Day 2 (10/22) | 입사 · 부서 이동 · 퇴사에 맞춰 역할을 주고 빼는 함수, 정해진 시각까지만 허용하는 예외 권한, 둘을 합친 최종 판정을 만들었습니다. 설정 파일이 없거나 깨져도 멈추지 않고 거부로 동작하게 했고, 테스트 케이스를 설계했습니다. | `policy.py`<br/>`exception_policy.py`<br/>`config_loader.py` |
+| Day 3 (10/23) | 권한 요청서를 받아 승인 · 반려하고, 승인된 요청도 정책으로 한 번 더 확인한 뒤 예외 권한을 부여했습니다. | `day03_am_request.md` |
+| Day 4 (10/29) | 누가 어떤 권한을 갖고 있는지 현황을 만들고, 퇴사 · 만료 규칙과 사용 이력으로 필요 없어진 권한을 찾아 과다권한 리포트로 묶었습니다. 평소 안 써도 되는 권한은 회수 제외로 뺐습니다. | `review_list.py`<br/>`overprivilege.py`<br/>`report_exclude.py` |
+| Day 5 (10/30) | 회수 대상마다 회수 계획을 세우고, 민감한 권한은 승인된 것만 실행해 이력을 남겼습니다. 오후에는 업무 시간 · 접속 위치 조건(작성 중)과 판정 서버를 만들었습니다. | `revoke_plan.py`<br/>`revoke.py`<br/>`conditional.py`<br/>`access_server.py` |
+| Day 6 (11/2) | 퇴사자 · 만료 예외 · 부서와 역할을 체크리스트로 점검하고, 요청 로그를 집계해 주간 보고서를 만들었습니다. | `checklist.py`<br/>`log_summary.py`<br/>`weekly_report.py` |
 
-요청 한 건을 판정하는 순서 (`policy.py`, `conditional.py`)
+### 요청 한 건을 판정하는 순서
+
+`policy.py`가 아래 순서로 확인하고, 하나라도 걸리면 그 자리에서 거부합니다.
+
+1. 사용자 상태: 없는 계정, 퇴사자, 역할이 없는 계정이면 거부
+2. 역할 권한: 역할에 그 권한이 있으면 4단계로
+3. 예외 권한: 역할에 없더라도 만료 전 예외가 있으면 4단계로, 없으면 거부
+4. 조건: 업무 시간 · 접속 위치 확인 (`conditional.py`, 작성 중이라 지금은 3단계까지만 동작)
 
 ```mermaid
-flowchart LR
-    Q["접근 요청<br/>사용자 · 자원 · 행위<br/>접속 위치 · 시각"] --> U{"사용자 상태<br/>정상?"}
+flowchart TB
+    Q["접근 요청<br/>사용자 · 자원 · 행위<br/>접속 위치 · 시각"] --> U{"1. 사용자 상태 정상?"}
     U -- "없음 · 퇴사 · 역할 없음" --> N["거부"]
-    U -- 정상 --> P{"역할 권한<br/>있음?"}
-    P -- 아니오 --> E{"만료 전<br/>예외 있음?"}
+    U -- 정상 --> P{"2. 역할 권한 있음?"}
+    P -- 아니오 --> E{"3. 만료 전 예외 있음?"}
     E -- 아니오 --> N
-    P -- 예 --> C{"조건 확인 · 작성 중<br/>업무 시간 · 접속 위치"}
+    P -- 예 --> C{"4. 조건 확인 · 작성 중<br/>업무 시간 · 접속 위치"}
     E -- 예 --> C
     C -- 어긋남 --> N
     C -- 통과 --> Y["허용"]
     style C stroke-dasharray: 5 5
 ```
 
-> 점선으로 표시한 조건 확인(업무 시간 · 접속 위치)은 `conditional.py`에서 아직 작성 중입니다. 지금 코드는 역할 · 예외 판정까지만 동작합니다.
+### 권한을 주고 회수하기까지
 
-권한을 주고 회수하고 보고하기까지 (Day 3~6)
+회수는 바로 지우지 않습니다. 계획을 세우고, 승인된 것만 실행하고, 이력을 남깁니다.
 
 ```mermaid
-flowchart LR
-    A["권한 요청서<br/>승인 · 반려"] --> B["부여"]
-    B --> C["접근 점검<br/>미사용 · 과다권한"]
-    C --> D["회수 계획"]
-    D --> E{"승인 필요?"}
-    E -- "승인 대기" --> W["대기로 남김"]
-    E -- "승인됨 · 불필요" --> F["회수 실행"]
-    F --> G["이력 저장"]
-    G --> H["점검 체크리스트<br/>로그 집계"]
+flowchart TB
+    A["권한 요청서 · 승인 · 부여<br/>Day 3"] --> C["접근 점검: 미사용 · 과다권한<br/>Day 4"]
+    C --> D["회수 계획<br/>Day 5"]
+    D --> E{"승인됐나?"}
+    E -- "승인 대기" --> W["실행하지 않고 대기"]
+    E -- "승인됨 · 승인 불필요" --> F["회수 실행 · 이력 저장"]
+    F --> H["체크리스트 · 로그 집계<br/>주간 보고서 · Day 6"]
     W --> H
-    H --> I["주간 보고서"]
 ```
-
-판정은 역할 권한, 유효한 예외 순으로 보고 둘 다 없으면 거부합니다. 설정 파일이 없거나 깨져 있을 때도 경고를 내고 거부로 동작하게 했습니다. 권한 회수는 바로 지우지 않고 계획, 승인, 실행, 이력 저장 순서로 진행합니다.
-
-사용자 · 권한 데이터는 모두 실습용 가상 데이터입니다.
 
 ---
 
