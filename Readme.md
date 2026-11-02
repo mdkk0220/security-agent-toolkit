@@ -17,7 +17,7 @@
 |---|---|---|
 | **`agent_core/`** | ⭐ 메인 프로젝트. 로그 수집부터 보고서 · 알림까지 이어지는 보안 관제 자동화 파이프라인 | [자세히 보기](agent_core/README.md) |
 | `network_zt/` | 네트워크 기초부터 제로트러스트까지 일별 학습 기록과 실습 코드 | [목차](#-network_zt--네트워크--제로트러스트-학습) |
-| `access_control/` | 역할 기반 접근 제어(RBAC)와 접근 로그 감사 실습 | [폴더](access_control/config) |
+| `access_control/` | 역할 기반 접근 제어(RBAC)와 접근 로그 감사 실습 | [폴더](access_control/) |
 | `docs/` | 날짜별 정리 노트와 회고 | [폴더](docs/docs) |
 
 ---

@@ -638,7 +638,7 @@ print(counts)                                                    # 승인 상태
 
 1. 승인 상태까지 정해진 계획을 이제 실행합니다. 승인 상태가 「승인 불필요」 또는 「승인됨」인 계획만 실행하고, 「승인 대기」인 계획은 실행하지 않습니다.
 2. 실행한 뒤에는 **같은 사용자 · 권한을 다시 판정**합니다. 10/22(목)의 `evaluate_access` 가 회수 전과 후에 같은 요청을 어떻게 판정하는지 비교하면 회수가 정말 효과가 있었는지 알 수 있습니다.
-3. 실행한 내용은 **회수 이력**(`revocation_log.json`)으로 남깁니다. 어제의 「사용 이력」(권한을 마지막으로 쓴 시각의 기록)과 다른 것입니다. 회수 이력은 오늘 무엇을 회수했는지의 기록입니다.
+3. 실행한 내용은 **회수 이력**(`config/revocation_log.json`)으로 남깁니다. 어제의 「사용 이력」(권한을 마지막으로 쓴 시각의 기록)과 다른 것입니다. 회수 이력은 오늘 무엇을 회수했는지의 기록입니다.
 
 ### 📖 4.1 실행 방법과 이력
 
@@ -714,13 +714,13 @@ log 를 리턴한다
 - **지금은**: 회수 계획과 승인 상태만 있고 실제로는 아무것도 지워지지 않았습니다. 지운 뒤에 정말 막혔는지 확인하는 방법도, 지운 기록도 없습니다.
 - **그래서 만드는 것**: `execute_revocation` 입니다.
   - 승인 상태가 「승인 대기」인 계획은 실행하지 않고 「대기」로 남기고, 나머지는 `apply_plan` 으로 실행해 「실행」으로 남기고, 이력 리스트를 리턴합니다.
-- **실행하면**: 단계 1은 계획별 실행 결과, 단계 2는 회수 전후의 판정 비교, 단계 3은 `revocation_log.json` 저장과 다시 읽은 건수를 출력합니다.
+- **실행하면**: 단계 1은 계획별 실행 결과, 단계 2는 회수 전후의 판정 비교, 단계 3은 `config/revocation_log.json` 저장과 다시 읽은 건수를 출력합니다.
 - **현업에서는**: 회수 도구도 실행한 뒤 다시 판정해 막혔는지 확인하고, 이력을 지우지 않고 보관합니다.
 
 **🎯 할 일**
 
 1. `revoke.py` 와 `day05_4-1_run.py` 두 파일을 만들고, `remove_exception` · `apply_plan` · `execute_revocation` 에서 직접 쓰는 곳 다섯 군데를 씁니다.
-2. 실행해서 <mark>회수 결과</mark>(단계 1: 실행), <mark>회수 전후의 판정</mark>(단계 2: 확인), <mark>저장한 이력</mark>(단계 3: 저장)을 읽고, 새로 생긴 `revocation_log.json` 파일도 열어 봅니다.
+2. 실행해서 <mark>회수 결과</mark>(단계 1: 실행), <mark>회수 전후의 판정</mark>(단계 2: 확인), <mark>저장한 이력</mark>(단계 3: 저장)을 읽고, 새로 생긴 `config/revocation_log.json` 파일도 열어 봅니다.
 
 **`revoke.py`**
 
@@ -851,8 +851,8 @@ for i in range(plan_count):                                      # 번호 i 로 
     print(plans[i]["user"], plans[i]["permission"], "|", before[i], "->", after[i], "|", mark)  # 전후 판정과 표시를 출력한다
 
 print("--- 단계 3: 저장 - 회수 이력")                            # 단계 3 시작을 알리는 줄
-count = save_log(log, "revocation_log.json")                     # 이력을 파일로 저장한다
-saved = load_json("revocation_log.json", [])                     # 저장한 파일을 다시 읽어
+count = save_log(log, "config/revocation_log.json")              # 이력을 파일로 저장한다
+saved = load_json("config/revocation_log.json", [])              # 저장한 파일을 다시 읽어
 print("저장", count, "건, 다시 읽은 건수", len(saved), "건, 첫 이력:", saved[0]["user"], saved[0]["permission"], saved[0]["result"])  # 건수와 첫 이력을 출력한다
 ```
 
@@ -868,7 +868,7 @@ print("저장", count, "건, 다시 읽은 건수", len(saved), "건, 첫 이력
    python day05_4-1_run.py
    ```
 4. 출력은 세 단계입니다. 단계 1은 계획 여덟 줄과 `실행 N 건, 대기 N 건`, 단계 2는 판정 비교 여덟 줄, 단계 3은 저장 한 줄입니다.
-5. **[VS Code]** 왼쪽 목록에 새로 생긴 `revocation_log.json` 을 열어 한글이 그대로 저장됐는지 봅니다.
+5. **[VS Code]** `config` 폴더에 새로 생긴 `revocation_log.json` 을 열어 한글이 그대로 저장됐는지 봅니다.
 6. **[보고서]** `day05_am_report.md` 의 `## 4교시` › `### 문제 4-1` 아래를 채웁니다.
    - (가) 출력 전체를 붙여 넣고, 이력의 결과가 「실행」인 건수와 「대기」인 건수, 회수 전후 판정이 바뀐 권한, 저장한 이력 건수를 적어 주세요.
    - (나) 🔍 회수를 실행한 7건 가운데 회수 전후 판정이 바뀐 것은 일부입니다. 바뀌지 않은 권한이 그대로인 이유와, 그래도 회수하고 이력을 남기는 이유를 적어 주세요.
@@ -897,8 +897,8 @@ ls
 ls config
 ```
 
-- `revoke_input.py` · `revoke_plan.py` · `revoke_approve.py` · `revoke.py` · `day05_2-1_run.py` · `day05_3-1_run.py` · `day05_4-1_run.py` · `revocation_log.json` 이 보여야 합니다.
-  - `config` 안에는 `sensitive.json` 이 새로 보여야 합니다.
+- `revoke_input.py` · `revoke_plan.py` · `revoke_approve.py` · `revoke.py` · `day05_2-1_run.py` · `day05_3-1_run.py` · `day05_4-1_run.py` 가 `access_control` 바로 아래에 보여야 합니다.
+  - `config` 안에는 `sensitive.json` · `revocation_log.json` 이 보여야 합니다.
 
 오후에는 회수한 뒤에도 조건을 따져 접근을 판단하는 **조건기반 정책**과 판정 함수를 서버로 여는 수업을 합니다. 올리기(git)는 오후 6교시 마지막에 한 번에 합니다.
 

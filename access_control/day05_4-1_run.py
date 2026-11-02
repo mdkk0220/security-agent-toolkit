@@ -56,6 +56,6 @@ for i in range(plan_count):                                      # 번호 i 로 
     print(plans[i]["user"], plans[i]["permission"], "|", before[i], "->", after[i], "|", mark)  # 전후 판정과 표시를 출력한다
 
 print("--- 단계 3: 저장 - 회수 이력")                            # 단계 3 시작을 알리는 줄
-count = save_log(log, "revocation_log.json")                     # 이력을 파일로 저장한다
-saved = load_json("revocation_log.json", [])                     # 저장한 파일을 다시 읽어
+count = save_log(log, "config/revocation_log.json")              # 이력을 파일로 저장한다
+saved = load_json("config/revocation_log.json", [])              # 저장한 파일을 다시 읽어
 print("저장", count, "건, 다시 읽은 건수", len(saved), "건, 첫 이력:", saved[0]["user"], saved[0]["permission"], saved[0]["result"])  # 건수와 첫 이력을 출력한다

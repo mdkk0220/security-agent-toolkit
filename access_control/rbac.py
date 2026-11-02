@@ -1,9 +1,9 @@
 import json                                                      # JSON 파일을 읽는 모듈을 불러온다
 from pathlib import Path
 
-with open(Path(__file__).with_name("roles.json"), encoding="utf-8") as f:  # 역할 파일을 연다
+with open(Path(__file__).parent / "config" / "roles.json", encoding="utf-8") as f:  # 역할 파일을 연다
     ROLES = json.load(f)                                         # 역할 → 권한 목록 딕셔너리로 읽는다
-with open(Path(__file__).with_name("users.json"), encoding="utf-8") as f:  # 사용자 파일을 연다
+with open(Path(__file__).parent / "config" / "users.json", encoding="utf-8") as f:  # 사용자 파일을 연다
     USERS = json.load(f)                                         # 사용자 → 정보 딕셔너리로 읽는다
 
 

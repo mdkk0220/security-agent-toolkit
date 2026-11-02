@@ -2,7 +2,7 @@ import json                                                      # JSON 파일�
 from datetime import datetime                                    # 글자를 시각으로 바꾸는 데 쓴다
 from pathlib import Path
 
-with open(Path(__file__).with_name("exceptions.json"), encoding="utf-8") as f:  # 예외 파일을 연다
+with open(Path(__file__).parent / "config" / "exceptions.json", encoding="utf-8") as f:  # 예외 파일을 연다
     EXCEPTIONS = json.load(f)                                    # 예외 딕셔너리들의 목록으로 읽는다
 
 TIME_FORMAT = "%Y-%m-%d %H:%M"                                   # 만료 시각 글자의 형식

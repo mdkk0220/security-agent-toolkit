@@ -18,6 +18,6 @@ def load_to_revoke():                                            # 어제 점검
     unused = find_unused(access_list, last_used_map, REVIEW_TIME, 90)  # 90일 넘게 안 쓴 권한을 찾는다
     generated_at = REVIEW_TIME.strftime(TIME_FORMAT)             # 리포트를 만든 시각을 문자열로 바꾼다
     report = generate_report(access_list, stale, unused, 90, generated_at)  # 후보 리포트를 만든다
-    exclude_map = load_exclude_map(Path(__file__).with_name("exclude_list.json"))  # 회수 제외 리스트를 읽는다
+    exclude_map = load_exclude_map(Path(__file__).parent / "config" / "exclude_list.json")  # 회수 제외 리스트를 읽는다
     to_revoke, excluded = split_by_exclude(report["findings"], exclude_map)   # 후보를 회수 대상과 회수 제외로 나눈다
     return to_revoke                                             # 회수 대상 리스트만 리턴한다

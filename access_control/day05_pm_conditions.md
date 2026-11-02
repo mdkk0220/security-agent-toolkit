@@ -706,7 +706,7 @@ Windows(Git Bash)에서 5001번 포트를 쓰는 프로그램을 찾아서 끄�
    - 어제(10/29(목))까지 올렸다면 오늘 만든 파일이 `access_control/revoke.py` 처럼 한 줄씩 보입니다.
      - 올리지 않았다면 `access_control/` 한 줄로 보일 수 있습니다.
      - 어느 쪽이든 `Untracked files:` 아래에 보이는 줄을 센 그대로 적습니다.
-   - `access_control/revocation_log.json` 은 오전 4교시에, `access_control/server_log.jsonl` 은 6교시에 서버가 만든 기록 파일입니다.
+   - `access_control/config/revocation_log.json` 은 오전 4교시에, `access_control/server_log.jsonl` 은 6교시에 서버가 만든 기록 파일입니다.
      - 이것도 올라갑니다.
    - `Untracked files:` 는 「아직 깃이 모르는 새 파일」 목록입니다.
    - `access_control/__pycache__/` (파이썬이 실행하면서 자동으로 만드는 임시 폴더)가 보이면 `.gitignore` 맨 아래에 `__pycache__/` 한 줄을 적고 저장한 뒤 `git status` 를 다시 칩니다.
