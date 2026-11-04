@@ -35,5 +35,5 @@ flowchart LR
 | `agent_core_1/` | 보안 관제 자동화 파이프라인 (메인 프로젝트) | [README](agent_core_1/README.md) |
 | `network_zt_2/` | 패킷 분석 · 서브넷 · DNS · VPN · 방화벽에서 제로트러스트 정책 로그 판정까지 8일 | [README](network_zt_2/README.md) |
 | `access_control_3/` | 역할 기반 권한 판정, 예외 권한, 권한 회수, 주간 보고서 | [README](access_control_3/README.md) |
-| `anomaly_detection_4/` | 접속 로그 읽기 · 이상 징후 가르기 · SIEM (진행 중) | [README](anomaly_detection_4/README.md) |
+| `anomaly_detection_4/` | 로그 3종류 정규화, 지난 7일 기준으로 로그인 실패 · 트래픽 급증 탐지와 알림 (진행 중) | [README](anomaly_detection_4/README.md) |
 | `docs/` | 날짜별 정리 노트와 회고 | [폴더](docs/) |
