@@ -5,7 +5,14 @@
     "user": "jiwoo",
     "ip": "203.0.113.80",
     "action": "login",
-    "result": "실패"
+    "result": "실패",
+    "raw": {
+      "time": "2026-11-02 02:14:08",
+      "account": "jiwoo@a-corp.example",
+      "event": "login",
+      "ip_address": "203.0.113.80",
+      "outcome": "failure"
+    }
   },
   {
     "time": "2026-11-02 09:01:05",
@@ -13,7 +20,8 @@
     "user": null,
     "ip": "198.51.100.21",
     "action": "GET /",
-    "result": "성공"
+    "result": "성공",
+    "raw": "198.51.100.21 - - [02/Nov/2026:09:01:05 +0900] \"GET / HTTP/1.1\" 200 1204 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:01:06",
@@ -21,7 +29,8 @@
     "user": null,
     "ip": "198.51.100.21",
     "action": "GET /static/app.css",
-    "result": "성공"
+    "result": "성공",
+    "raw": "198.51.100.21 - - [02/Nov/2026:09:01:06 +0900] \"GET /static/app.css HTTP/1.1\" 200 3120 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:03:47",
@@ -29,7 +38,8 @@
     "user": null,
     "ip": "198.51.100.34",
     "action": "GET /login",
-    "result": "성공"
+    "result": "성공",
+    "raw": "198.51.100.34 - - [02/Nov/2026:09:03:47 +0900] \"GET /login HTTP/1.1\" 200 1830 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:03:59",
@@ -37,7 +47,8 @@
     "user": null,
     "ip": "198.51.100.34",
     "action": "POST /login",
-    "result": "성공"
+    "result": "성공",
+    "raw": "198.51.100.34 - - [02/Nov/2026:09:03:59 +0900] \"POST /login HTTP/1.1\" 302 0 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:04:00",
@@ -45,7 +56,8 @@
     "user": null,
     "ip": "198.51.100.34",
     "action": "GET /board",
-    "result": "성공"
+    "result": "성공",
+    "raw": "198.51.100.34 - - [02/Nov/2026:09:04:00 +0900] \"GET /board HTTP/1.1\" 200 5410 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:05:21",
@@ -53,7 +65,8 @@
     "user": null,
     "ip": "192.0.2.15",
     "action": "GET /board?page=2",
-    "result": "성공"
+    "result": "성공",
+    "raw": "192.0.2.15 - - [02/Nov/2026:09:05:21 +0900] \"GET /board?page=2 HTTP/1.1\" 200 5322 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:05:30",
@@ -61,7 +74,14 @@
     "user": "seoyeon",
     "ip": "198.51.100.9",
     "action": "login",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 09:05:30",
+      "account": "seoyeon@a-corp.example",
+      "event": "login",
+      "ip_address": "198.51.100.9",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 09:05:40",
@@ -69,7 +89,8 @@
     "user": null,
     "ip": "192.0.2.15",
     "action": "GET /board/12",
-    "result": "성공"
+    "result": "성공",
+    "raw": "192.0.2.15 - - [02/Nov/2026:09:05:40 +0900] \"GET /board/12 HTTP/1.1\" 200 2210 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:12:01",
@@ -77,7 +98,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "GET /login",
-    "result": "성공"
+    "result": "성공",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:01 +0900] \"GET /login HTTP/1.1\" 200 1830 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:03",
@@ -85,7 +107,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "POST /login",
-    "result": "실패"
+    "result": "실패",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:03 +0900] \"POST /login HTTP/1.1\" 401 312 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:06",
@@ -93,7 +116,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "POST /login",
-    "result": "실패"
+    "result": "실패",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:06 +0900] \"POST /login HTTP/1.1\" 401 312 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:09",
@@ -101,7 +125,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "POST /login",
-    "result": "실패"
+    "result": "실패",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:09 +0900] \"POST /login HTTP/1.1\" 401 312 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:12",
@@ -109,7 +134,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "POST /login",
-    "result": "실패"
+    "result": "실패",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:12 +0900] \"POST /login HTTP/1.1\" 401 312 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:15",
@@ -117,7 +143,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "POST /login",
-    "result": "실패"
+    "result": "실패",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:15 +0900] \"POST /login HTTP/1.1\" 401 312 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:18",
@@ -125,7 +152,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "POST /login",
-    "result": "성공"
+    "result": "성공",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:18 +0900] \"POST /login HTTP/1.1\" 302 0 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:25",
@@ -133,7 +161,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "GET /admin",
-    "result": "실패"
+    "result": "실패",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:25 +0900] \"GET /admin HTTP/1.1\" 403 287 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:12:27",
@@ -141,7 +170,8 @@
     "user": null,
     "ip": "203.0.113.50",
     "action": "GET /admin/users",
-    "result": "실패"
+    "result": "실패",
+    "raw": "203.0.113.50 - - [02/Nov/2026:09:12:27 +0900] \"GET /admin/users HTTP/1.1\" 403 287 \"-\" \"python-requests/2.31.0\""
   },
   {
     "time": "2026-11-02 09:20:10",
@@ -149,7 +179,8 @@
     "user": null,
     "ip": "198.51.100.90",
     "action": "GET /.env",
-    "result": "실패"
+    "result": "실패",
+    "raw": "198.51.100.90 - - [02/Nov/2026:09:20:10 +0900] \"GET /.env HTTP/1.1\" 404 153 \"-\" \"curl/8.4.0\""
   },
   {
     "time": "2026-11-02 09:20:11",
@@ -157,7 +188,8 @@
     "user": null,
     "ip": "198.51.100.90",
     "action": "GET /wp-login.php",
-    "result": "실패"
+    "result": "실패",
+    "raw": "198.51.100.90 - - [02/Nov/2026:09:20:11 +0900] \"GET /wp-login.php HTTP/1.1\" 404 153 \"-\" \"curl/8.4.0\""
   },
   {
     "time": "2026-11-02 09:20:12",
@@ -165,7 +197,8 @@
     "user": null,
     "ip": "198.51.100.90",
     "action": "GET /phpmyadmin",
-    "result": "실패"
+    "result": "실패",
+    "raw": "198.51.100.90 - - [02/Nov/2026:09:20:12 +0900] \"GET /phpmyadmin HTTP/1.1\" 404 153 \"-\" \"curl/8.4.0\""
   },
   {
     "time": "2026-11-02 09:22:30",
@@ -173,7 +206,8 @@
     "user": null,
     "ip": "198.51.100.21",
     "action": "GET /board/99",
-    "result": "실패"
+    "result": "실패",
+    "raw": "198.51.100.21 - - [02/Nov/2026:09:22:30 +0900] \"GET /board/99 HTTP/1.1\" 404 153 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:25:02",
@@ -181,7 +215,8 @@
     "user": null,
     "ip": "198.51.100.34",
     "action": "GET /report",
-    "result": "실패"
+    "result": "실패",
+    "raw": "198.51.100.34 - - [02/Nov/2026:09:25:02 +0900] \"GET /report HTTP/1.1\" 500 177 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:26:44",
@@ -189,7 +224,8 @@
     "user": null,
     "ip": "192.0.2.15",
     "action": "GET /search?q=network",
-    "result": "성공"
+    "result": "성공",
+    "raw": "192.0.2.15 - - [02/Nov/2026:09:26:44 +0900] \"GET /search?q=network HTTP/1.1\" 200 4010 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:28:13",
@@ -197,7 +233,8 @@
     "user": null,
     "ip": "192.0.2.88",
     "action": "GET /",
-    "result": "성공"
+    "result": "성공",
+    "raw": "192.0.2.88 - - [02/Nov/2026:09:28:13 +0900] \"GET / HTTP/1.1\" 200 1204 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:28:20",
@@ -205,7 +242,8 @@
     "user": null,
     "ip": "192.0.2.88",
     "action": "GET /board",
-    "result": "성공"
+    "result": "성공",
+    "raw": "192.0.2.88 - - [02/Nov/2026:09:28:20 +0900] \"GET /board HTTP/1.1\" 200 5410 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:30:12",
@@ -213,7 +251,14 @@
     "user": "junho",
     "ip": "192.0.2.41",
     "action": "login",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 09:30:12",
+      "account": "junho@a-corp.example",
+      "event": "login",
+      "ip_address": "192.0.2.41",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 09:31:15",
@@ -221,7 +266,8 @@
     "user": null,
     "ip": "198.51.100.21",
     "action": "GET /board",
-    "result": "성공"
+    "result": "성공",
+    "raw": "198.51.100.21 - - [02/Nov/2026:09:31:15 +0900] \"GET /board HTTP/1.1\" 301 169 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:33:51",
@@ -229,7 +275,8 @@
     "user": null,
     "ip": "198.51.100.77",
     "action": "GET /admin",
-    "result": "실패"
+    "result": "실패",
+    "raw": "198.51.100.77 - - [02/Nov/2026:09:33:51 +0900] \"GET /admin HTTP/1.1\" 403 287 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:35:02",
@@ -237,7 +284,8 @@
     "user": null,
     "ip": "192.0.2.88",
     "action": "GET /logout",
-    "result": "성공"
+    "result": "성공",
+    "raw": "192.0.2.88 - - [02/Nov/2026:09:35:02 +0900] \"GET /logout HTTP/1.1\" 302 0 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:36:10",
@@ -245,7 +293,8 @@
     "user": null,
     "ip": "198.51.100.21",
     "action": "GET /board/12",
-    "result": "성공"
+    "result": "성공",
+    "raw": "198.51.100.21 - - [02/Nov/2026:09:36:10 +0900] \"GET /board/12 HTTP/1.1\" 200 2210 \"-\" \"Mozilla/5.0\""
   },
   {
     "time": "2026-11-02 09:40:00",
@@ -253,7 +302,8 @@
     "user": "seoyeon",
     "ip": null,
     "action": "SALES:QUERY",
-    "result": "성공"
+    "result": "성공",
+    "raw": "{\"time\": \"2026-11-02T09:40\", \"user\": \"seoyeon\", \"permission\": \"SALES:QUERY\", \"network\": \"office\", \"allowed\": true, \"reason\": \"역할 권한\"}"
   },
   {
     "time": "2026-11-02 09:52:00",
@@ -261,7 +311,8 @@
     "user": "junho",
     "ip": null,
     "action": "SALES:CHANGE",
-    "result": "성공"
+    "result": "성공",
+    "raw": "{\"time\": \"2026-11-02T09:52\", \"user\": \"junho\", \"permission\": \"SALES:CHANGE\", \"network\": \"office\", \"allowed\": true, \"reason\": \"역할 권한\"}"
   },
   {
     "time": "2026-11-02 10:05:00",
@@ -269,7 +320,8 @@
     "user": "gaeun",
     "ip": null,
     "action": "ACCOUNT:CHANGE",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T10:05\", \"user\": \"gaeun\", \"permission\": \"ACCOUNT:CHANGE\", \"network\": \"vpn\", \"allowed\": false, \"reason\": \"허용되지 않은 접속 위치\"}"
   },
   {
     "time": "2026-11-02 10:09:00",
@@ -277,7 +329,8 @@
     "user": "gaeun",
     "ip": null,
     "action": "ACCOUNT:CHANGE",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T10:09\", \"user\": \"gaeun\", \"permission\": \"ACCOUNT:CHANGE\", \"network\": \"vpn\", \"allowed\": false, \"reason\": \"허용되지 않은 접속 위치\"}"
   },
   {
     "time": "2026-11-02 10:12:55",
@@ -285,7 +338,14 @@
     "user": "gaeun",
     "ip": "198.51.100.77",
     "action": "login",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 10:12:55",
+      "account": "gaeun@a-corp.example",
+      "event": "login",
+      "ip_address": "198.51.100.77",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 10:14:00",
@@ -293,7 +353,8 @@
     "user": "gaeun",
     "ip": null,
     "action": "ACCOUNT:CHANGE",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T10:14\", \"user\": \"gaeun\", \"permission\": \"ACCOUNT:CHANGE\", \"network\": \"vpn\", \"allowed\": false, \"reason\": \"허용되지 않은 접속 위치\"}"
   },
   {
     "time": "2026-11-02 11:02:00",
@@ -301,7 +362,8 @@
     "user": "dami",
     "ip": null,
     "action": "SALES:QUERY",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T11:02\", \"user\": \"dami\", \"permission\": \"SALES:QUERY\", \"network\": \"office\", \"allowed\": false, \"reason\": \"퇴사한 계정\"}"
   },
   {
     "time": "2026-11-02 11:03:00",
@@ -309,7 +371,8 @@
     "user": "dami",
     "ip": null,
     "action": "SALES:QUERY",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T11:03\", \"user\": \"dami\", \"permission\": \"SALES:QUERY\", \"network\": \"office\", \"allowed\": false, \"reason\": \"퇴사한 계정\"}"
   },
   {
     "time": "2026-11-02 11:05:00",
@@ -317,7 +380,8 @@
     "user": "dami",
     "ip": null,
     "action": "SALES:CHANGE",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T11:05\", \"user\": \"dami\", \"permission\": \"SALES:CHANGE\", \"network\": \"office\", \"allowed\": false, \"reason\": \"퇴사한 계정\"}"
   },
   {
     "time": "2026-11-02 11:08:00",
@@ -325,7 +389,8 @@
     "user": "dami",
     "ip": null,
     "action": "SALES:QUERY",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T11:08\", \"user\": \"dami\", \"permission\": \"SALES:QUERY\", \"network\": \"office\", \"allowed\": false, \"reason\": \"퇴사한 계정\"}"
   },
   {
     "time": "2026-11-02 11:25:40",
@@ -333,7 +398,14 @@
     "user": "seoyeon",
     "ip": "198.51.100.9",
     "action": "file.download",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 11:25:40",
+      "account": "seoyeon@a-corp.example",
+      "event": "file.download",
+      "ip_address": "198.51.100.9",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 11:40:00",
@@ -341,7 +413,8 @@
     "user": "seoyeon",
     "ip": null,
     "action": "SETTLE:QUERY",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T11:40\", \"user\": \"seoyeon\", \"permission\": \"SETTLE:QUERY\", \"network\": \"office\", \"allowed\": false, \"reason\": \"권한 없음\"}"
   },
   {
     "time": "2026-11-02 13:15:00",
@@ -349,7 +422,8 @@
     "user": "junho",
     "ip": null,
     "action": "SALES:QUERY",
-    "result": "성공"
+    "result": "성공",
+    "raw": "{\"time\": \"2026-11-02T13:15\", \"user\": \"junho\", \"permission\": \"SALES:QUERY\", \"network\": \"office\", \"allowed\": true, \"reason\": \"역할 권한\"}"
   },
   {
     "time": "2026-11-02 13:50:21",
@@ -357,7 +431,14 @@
     "user": "junho",
     "ip": "192.0.2.41",
     "action": "file.upload",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 13:50:21",
+      "account": "junho@a-corp.example",
+      "event": "file.upload",
+      "ip_address": "192.0.2.41",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 14:30:00",
@@ -365,7 +446,8 @@
     "user": "seoyeon",
     "ip": null,
     "action": "SALES:CHANGE",
-    "result": "성공"
+    "result": "성공",
+    "raw": "{\"time\": \"2026-11-02T14:30\", \"user\": \"seoyeon\", \"permission\": \"SALES:CHANGE\", \"network\": \"office\", \"allowed\": true, \"reason\": \"역할 권한\"}"
   },
   {
     "time": "2026-11-02 15:05:00",
@@ -373,7 +455,8 @@
     "user": "junho",
     "ip": null,
     "action": "SALES:QUERY",
-    "result": "성공"
+    "result": "성공",
+    "raw": "{\"time\": \"2026-11-02T15:05\", \"user\": \"junho\", \"permission\": \"SALES:QUERY\", \"network\": \"office\", \"allowed\": true, \"reason\": \"역할 권한\"}"
   },
   {
     "time": "2026-11-02 15:20:03",
@@ -381,7 +464,14 @@
     "user": "junho",
     "ip": "192.0.2.41",
     "action": "login",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 15:20:03",
+      "account": "junho@a-corp.example",
+      "event": "login",
+      "ip_address": "192.0.2.41",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 16:02:18",
@@ -389,7 +479,14 @@
     "user": "jiwoo",
     "ip": "198.51.100.52",
     "action": "login",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 16:02:18",
+      "account": "jiwoo@a-corp.example",
+      "event": "login",
+      "ip_address": "198.51.100.52",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 16:10:00",
@@ -397,7 +494,8 @@
     "user": "gaeun",
     "ip": null,
     "action": "SALES:QUERY",
-    "result": "성공"
+    "result": "성공",
+    "raw": "{\"time\": \"2026-11-02T16:10\", \"user\": \"gaeun\", \"permission\": \"SALES:QUERY\", \"network\": \"office\", \"allowed\": true, \"reason\": \"역할 권한\"}"
   },
   {
     "time": "2026-11-02 17:38:10",
@@ -405,7 +503,14 @@
     "user": "seoyeon",
     "ip": "203.0.113.80",
     "action": "login",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 17:38:10",
+      "account": "seoyeon@a-corp.example",
+      "event": "login",
+      "ip_address": "203.0.113.80",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 17:40:02",
@@ -413,7 +518,14 @@
     "user": "seoyeon",
     "ip": "203.0.113.80",
     "action": "file.download",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 17:40:02",
+      "account": "seoyeon@a-corp.example",
+      "event": "file.download",
+      "ip_address": "203.0.113.80",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 17:40:31",
@@ -421,7 +533,14 @@
     "user": "seoyeon",
     "ip": "203.0.113.80",
     "action": "file.download",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 17:40:31",
+      "account": "seoyeon@a-corp.example",
+      "event": "file.download",
+      "ip_address": "203.0.113.80",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 17:41:05",
@@ -429,7 +548,14 @@
     "user": "seoyeon",
     "ip": "203.0.113.80",
     "action": "file.download",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 17:41:05",
+      "account": "seoyeon@a-corp.example",
+      "event": "file.download",
+      "ip_address": "203.0.113.80",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 17:41:48",
@@ -437,7 +563,14 @@
     "user": "seoyeon",
     "ip": "203.0.113.80",
     "action": "file.download",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 17:41:48",
+      "account": "seoyeon@a-corp.example",
+      "event": "file.download",
+      "ip_address": "203.0.113.80",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 17:42:20",
@@ -445,7 +578,14 @@
     "user": "seoyeon",
     "ip": "203.0.113.80",
     "action": "file.download",
-    "result": "성공"
+    "result": "성공",
+    "raw": {
+      "time": "2026-11-02 17:42:20",
+      "account": "seoyeon@a-corp.example",
+      "event": "file.download",
+      "ip_address": "203.0.113.80",
+      "outcome": "success"
+    }
   },
   {
     "time": "2026-11-02 18:20:00",
@@ -453,6 +593,7 @@
     "user": "seoyeon",
     "ip": null,
     "action": "SALES:CHANGE",
-    "result": "실패"
+    "result": "실패",
+    "raw": "{\"time\": \"2026-11-02T18:20\", \"user\": \"seoyeon\", \"permission\": \"SALES:CHANGE\", \"network\": \"vpn\", \"allowed\": false, \"reason\": \"업무 시간 밖\"}"
   }
 ]
