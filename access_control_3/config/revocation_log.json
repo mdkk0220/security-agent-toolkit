@@ -1,0 +1,66 @@
+[
+  {
+    "time": "2026-10-30 10:00",
+    "user": "junho",
+    "permission": "SALES:QUERY",
+    "method": "역할에서 권한 빼기",
+    "approval": "승인 불필요",
+    "result": "실행"
+  },
+  {
+    "time": "2026-10-30 10:00",
+    "user": "dami",
+    "permission": "SALES:QUERY",
+    "method": "역할 해제",
+    "approval": "승인됨",
+    "result": "실행"
+  },
+  {
+    "time": "2026-10-30 10:00",
+    "user": "dami",
+    "permission": "SALES:CHANGE",
+    "method": "역할 해제",
+    "approval": "승인됨",
+    "result": "실행"
+  },
+  {
+    "time": "2026-10-30 10:00",
+    "user": "seoyeon",
+    "permission": "SETTLE:QUERY",
+    "method": "예외 삭제",
+    "approval": "승인 불필요",
+    "result": "실행"
+  },
+  {
+    "time": "2026-10-30 10:00",
+    "user": "junho",
+    "permission": "SALES:CHANGE",
+    "method": "예외 삭제",
+    "approval": "승인 대기",
+    "result": "대기"
+  },
+  {
+    "time": "2026-10-30 10:00",
+    "user": "dami",
+    "permission": "SALES:QUERY",
+    "method": "예외 삭제",
+    "approval": "승인 불필요",
+    "result": "실행"
+  },
+  {
+    "time": "2026-10-30 10:00",
+    "user": "batch-night",
+    "permission": "SALES:QUERY",
+    "method": "예외 삭제",
+    "approval": "승인 불필요",
+    "result": "실행"
+  },
+  {
+    "time": "2026-10-30 10:00",
+    "user": "gaeun",
+    "permission": "SETTLE:QUERY",
+    "method": "예외 삭제",
+    "approval": "승인 불필요",
+    "result": "실행"
+  }
+]

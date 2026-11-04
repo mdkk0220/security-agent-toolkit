@@ -12,6 +12,7 @@ def plan_key(plan):                                              # 계획 한 �
     permission = plan["permission"]                              # 계획의 권한
     # ← 아래를 직접 씁니다 (주석은 두고 각 주석 바로 아래 줄에 씁니다)
     # 1. f"{user}:{permission}" 을 리턴한다 (사용자와 권한을 : 로 이어 붙인 문자열)
+    return f"{user}:{permission}"                                # 승인 결정을 찾을 키
 
 
 def needs_approval(plan, sensitive):                             # 계획 한 건과 민감한 권한 리스트를 받는 함수
@@ -20,6 +21,9 @@ def needs_approval(plan, sensitive):                             # 계획 한 �
     # 2. plan["permission"] 이 sensitive 안에 있는지(in)를 is_sensitive 에 담는다
     # 3. plan["impact"] 가 2 이상인지(>=)를 is_big_impact 에 담는다
     # 4. is_sensitive 이거나 is_big_impact 이면 True 가 되도록 리턴한다 (or)
+    is_sensitive = plan["permission"] in sensitive              # 민감한 권한인지 확인한다
+    is_big_impact = plan["impact"] >= 2                          # 영향이 큰 회수인지 확인한다
+    return is_sensitive or is_big_impact                         # 둘 중 하나라도 해당하면 승인받는다
 
 
 def mark_approvals(plans, sensitive, decisions):                 # 계획 리스트 · 민감한 권한 리스트 · 승인 결정 딕셔너리를 받는 함수
@@ -37,5 +41,11 @@ def mark_approvals(plans, sensitive, decisions):                 # 계획 리스
         # 8.   item["approval"] 을 "승인됨" 으로 정한다
         # 9. 그렇지 않으면 (else)
         # 10.  item["approval"] 을 "승인 대기" 로 정한다
+        if not needs:                                             # 승인이 필요 없으면
+            item["approval"] = "승인 불필요"                      # 바로 실행할 수 있다
+        elif decision == "승인":                                 # 필요한 승인을 받았으면
+            item["approval"] = "승인됨"                          # 승인 완료로 표시한다
+        else:                                                     # 승인 결정이 없으면
+            item["approval"] = "승인 대기"                        # 실행을 보류한다
         results.append(item)                                     # 승인 상태를 적은 복사본을 결과 리스트에 추가한다
     return results                                               # 결과 리스트를 리턴한다
