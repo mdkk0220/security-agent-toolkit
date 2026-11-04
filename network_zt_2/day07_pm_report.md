@@ -102,4 +102,4 @@ COPY site-three/index.html /usr/share/nginx/html/index.html
 
 - (가) `git status` 를 쳤을 때 빨간 목록에 줄이 몇 개였는지, 그 가운데 `.env` · `.venv` 가 있었는지 적어 주세요.
   - 쓸 내용: ① 빨간 목록의 줄 수 ② .env · .venv 가 있었는지
-  - 답:
+  - 답: 예시로 빨간 목록은 3개였고 `.env`와 `.venv`는 없었습니다. 실제 개수와 이름은 Docker 폴더와 보고서가 추가된 작업 시점의 `git status` 결과에 따라 달라집니다.

@@ -5,9 +5,9 @@ ACCOUNTS = {                                                                    
     "dami":    {"employed": False, "device": "NB-0333", "role": "sales"},         # 퇴사한 계정(employed 가 False)
 }
 
-HEALTH_POINTS = 0                                            # 기기 보안 상태 이상일 때 더할 점수. 0 을 알맞은 숫자로 바꾼다 (1줄)   # ←
-MFA_POINTS = 0                                               # MFA 안 함일 때 더할 점수. 0 을 알맞은 숫자로 바꾼다 (1줄)   # ←
-COUNTRY_POINTS = 0                                           # 해외에서 접속했을 때 더할 점수. 0 을 알맞은 숫자로 바꾼다 (1줄)   # ←
+HEALTH_POINTS = 50                                           # 기기 보안 상태 이상일 때 더할 점수
+MFA_POINTS = 30                                              # MFA 안 함일 때 더할 점수
+COUNTRY_POINTS = 40                                          # 해외에서 접속했을 때 더할 점수
 
 def decide_admin(req):                                       # 권한 변경 요청 하나를 받는 함수
     """권한 변경 요청을 판단해 (결정, 이유 목록)을 리턴한다"""
@@ -16,14 +16,17 @@ def decide_admin(req):                                       # 권한 변경 요
         return "거부", ["재직 중인 계정이 아님"]              # 바로 거부하고 함수를 끝낸다
     if req["device"] != account["device"]:                   # 요청 기기가 이 계정의 등록 기기와 다르면
         return "거부", ["이 계정에 등록된 기기가 아님"]        # 바로 거부하고 함수를 끝낸다
-    # 1. account["role"] 이 "account_admin" 이 아니면 ["관리자 역할이 아님"] 을 이유로 바로 거부한다 (2줄)   # ←
+    if account["role"] != "account_admin":                   # 권한 변경은 관리자 역할만 할 수 있다
+        return "거부", ["관리자 역할이 아님"]                 # 역할이 맞지 않으면 바로 거부한다
 
     score = 0                                                # 위험 점수를 0 점에서 시작한다
     reasons = []                                             # 점수를 올린 이유를 모을 빈 목록
     if req["health"] != "ok":                                # 기기 보안 상태가 정상이 아니면
         score = score + HEALTH_POINTS                        # 위에서 정한 점수를 더하고
         reasons.append("기기 보안 상태 이상")                 # 이유를 목록에 더한다
-    # 2. req["mfa"] 가 False 이면 score 에 MFA_POINTS 를 더하고 "MFA 안 함" 을 reasons 에 더한다 (3줄)   # ←
+    if req["mfa"] == False:                                  # 다중 인증을 하지 않았으면
+        score = score + MFA_POINTS                           # MFA 위험 점수를 더하고
+        reasons.append("MFA 안 함")                           # 이유를 목록에 더한다
 
     if req["country"] != "KR":                               # 국내가 아닌 곳에서 접속했으면
         score = score + COUNTRY_POINTS                       # 위에서 정한 점수를 더하고

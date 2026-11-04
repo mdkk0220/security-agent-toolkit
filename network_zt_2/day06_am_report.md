@@ -56,6 +56,16 @@ HEALTH_POINTS = 50
 MFA_POINTS = 30
 COUNTRY_POINTS = 40
 
+if account["role"] != "account_admin":
+    return "거부", ["관리자 역할이 아님"]
+
+if req["mfa"] == False:
+    score = score + MFA_POINTS
+    reasons.append("MFA 안 함")
+HEALTH_POINTS = 50
+MFA_POINTS = 30
+COUNTRY_POINTS = 40
+
     if account["role"] != "account_admin":
         return "거부", ["관리자 역할이 아님"]
 
@@ -81,6 +91,14 @@ COUNTRY_POINTS = 40
   - 답:
 
 ```
+[추가확인] 2 seoyeon ['대량 조회 (+30)']
+[거부] 3 seoyeon ['이 계정에 등록된 기기가 아님']
+[거부] 4 dami ['재직 중인 계정이 아님']
+[추가확인] 5 junho ['기기 보안 상태 이상 (+40)']
+[거부] 6 junho ['해외에서 접속 (+30)', '새벽 접속 (+20)']
+[거부] 7 seoyeon ['이 계정에 등록된 기기가 아님']
+허용 1 건 / 추가확인 2 건 / 거부 4 건
+거부 이유별 건수 {'이 계정에 등록된 기기가 아님': 2, '재직 중인 계정이 아님': 1, '해외에서 접속 (+30)': 1, '새벽 접속 (+20)': 1}
 [추가확인] 2 seoyeon ['대량 조회 (+30)']
 [거부] 3 seoyeon ['이 계정에 등록된 기기가 아님']
 [거부] 4 dami ['재직 중인 계정이 아님']
@@ -116,6 +134,10 @@ COUNTRY_POINTS = 40
   - 답:
 
 ```
+mfa_score = round(mfa_count / len(STAFF) * 20)
+device_score = round(device_count / len(STAFF) * 20)
+least_score = round(least_count / len(STAFF) * 20)
+total = mfa_score + device_score + least_score + seg_score + risk_score
 mfa_score = round(mfa_count / len(STAFF) * 20)
 device_score = round(device_count / len(STAFF) * 20)
 least_score = round(least_count / len(STAFF) * 20)

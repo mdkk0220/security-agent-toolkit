@@ -42,14 +42,18 @@ for p in POLICY_LOG:                                         # 정책 로그를 
     policy_ids.append(p["rid"])                              # 요청 번호를 목록에 더한다
     status = access_status.get(p["rid"])                     # 같은 요청 번호의 앱 응답 번호. 없으면 None
     expected = EXPECTED[p["decision"]]                       # 이 결정에서 앱이 냈어야 하는 응답 번호
-    # 1. status 가 expected 와 다르면 아래 2 ~ 4 를 한다   # ←
-        # 2. STRENGTH[status] 가 STRENGTH[expected] 보다 작으면 kind 를 "집행 누락", 아니면 "과집행" 으로 정한다   # ←
-        # 3. counts 에서 kind 의 개수를 1 늘린다   # ←
-        # 4. "[어긋남]", p["rid"], p["user"], p["decision"], status, kind 를 출력한다   # ←
+    if status != expected:                                    # 앱 결과가 정책 결정과 다르면
+        if STRENGTH[status] < STRENGTH[expected]:              # 정책보다 약하게 집행했으면
+            kind = "집행 누락"
+        else:
+            kind = "과집행"
+        counts[kind] = counts.get(kind, 0) + 1
+        print("[어긋남]", p["rid"], p["user"], p["decision"], status, kind)
 
 for a in ACCESS_LOG:                                         # 앱 기록을 다시 한 줄씩 꺼낸다
     user = a["user"]                                         # 이 줄의 계정 이름
-    # 5. a["rid"] 가 policy_ids 에 없으면 "[우회]", a["rid"], user, a["status"] 를 출력한다   # ←
-        # 6. counts 에서 "우회" 의 개수를 1 늘린다   # ←
+    if a["rid"] not in policy_ids:                             # 정책 기록에 없는 앱 요청이면
+        print("[우회]", a["rid"], user, a["status"])
+        counts["우회"] = counts.get("우회", 0) + 1
 
-# 7. counts 를 출력한다   # ←
+print(counts)
