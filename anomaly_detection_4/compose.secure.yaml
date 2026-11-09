@@ -1,0 +1,18 @@
+services:
+  web1:
+    image: nginx:1.28
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+  web2:
+    image: nginx:1.28
+    ports:
+      - "127.0.0.1:8081:80"
+    restart: unless-stopped
+  web3:
+    image: nginx:1.28
+    ports:
+      - "127.0.0.1:8082:80"
+    restart: unless-stopped
+    volumes:
+      - ./logs:/var/log/nginx
