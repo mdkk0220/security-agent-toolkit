@@ -47,6 +47,8 @@ python day02_4-1_run.py   # 로그 3종류 정규화 → normalized_events.json
 python day03_6-1_run.py   # 로그인 실패 · 트래픽 급증 탐지 → alerts.json
 ```
 
+Day 6 통합 파이프라인은 이벤트 탐지·점수화·요약을 실행해 `day06_report.json`을 저장합니다. Gemini 요약을 사용할 때는 저장소 루트의 `.env`에 `GEMINI_API_KEY`를 설정한 뒤 실행합니다. API 호출 없이 건수와 대체 문장을 확인하려면 `python pipeline.py --offline`을 사용합니다.
+
 ## 참고
 
 - 실습 문서와 샘플 로그는 수업에서 제공받았습니다.
