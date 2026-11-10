@@ -10,11 +10,11 @@ flowchart LR
     B --> C["탐지 규칙<br/>권한 · SaaS · 스캔"]
     C --> D["60분 안<br/>여러 로그 연결"]
     D --> E["위험 점수<br/>high · mid · low"]
-    E --> F["AI 요약<br/>사실만 전달"]
+    E --> F["AI 요약<br/>low 제외 상위 3명"]
     F --> G["day06_report.json"]
 ```
 
-`python pipeline.py --offline` 결과: 이벤트 57개 · 탐지 규칙 8건 · 대상 5건 (AI 호출은 생략하고 대체 문장으로 확인)
+`python day06_3-1_run.py --offline` 결과: 이벤트 57개 · 탐지 규칙 8건 · 대상 5건 · 요약 3건 (AI 호출은 생략하고 대체 문장으로 확인)
 
 ## 일차별로 한 것
 
@@ -29,7 +29,7 @@ flowchart LR
 | Day&nbsp;4&nbsp;(11/5)&nbsp;오후 | 사용자별로 세 로그를 시간순으로 이어 60분 안에 서로 다른 로그에서 나온 사건(gaeun, 3종류 · 41분)을 찾고, 이유마다 점수를 더해 대상 5개에 등급을 매겼습니다. | `correlation.py`<br/>`risk_scores.py` |
 | Day&nbsp;5&nbsp;(11/6)&nbsp;오전 | 알림 7개를 실제 문제 목록과 맞춰 오탐 4 · 미탐 2를 세고, 믿는 IP 예외 규칙과 로그인 알림 합치기를 적용해 알림 6개 · 오탐 2 · 미탐 1로 줄였습니다. 예외로 빠진 알림 중 진짜 문제는 0개인 것도 확인했습니다. | `evaluation.py`<br/>`tuning.py`<br/>`final_check.py` |
 | Day&nbsp;5&nbsp;(11/6)&nbsp;오후 | Docker Compose 파일로 웹 서버 여러 대의 포트를 정하고, 외부에 열 서버와 `127.0.0.1`에만 열 서버를 나눴습니다. Docker를 실행할 수 없는 환경이라 실제 실행은 하지 못했습니다. | `compose.yaml`<br/>`compose.secure.yaml` |
-| Day&nbsp;6&nbsp;(11/9)&nbsp;오전 | Day 4의 탐지 · 연결 · 점수를 하나로 묶고, 점수 파일의 사실만 Gemini에 보내 대상별로 요약하는 파이프라인을 만들었습니다. 요약이 실패하면 규칙 이름으로 만든 대체 문장을 씁니다. | `pipeline.py`<br/>`day06_report.json` |
+| Day&nbsp;6&nbsp;(11/9)&nbsp;오전 | Day 4의 탐지 · 연결 · 점수를 하나로 묶고, low가 아닌 상위 3명의 점수 · 등급 · 탐지 이유만 Gemini에 보내 요약하는 파이프라인을 만들었습니다. 지시문에 "사실에 없는 내용을 지어내지 말 것, 공격이라고 단정하지 말 것"을 넣었고, 호출이나 응답 처리가 실패하면 "요약 실패 — 점수와 이유를 직접 확인"으로 대신합니다. | `event_summary.py`<br/>`pipeline.py`<br/>`day06_report.json` |
 
 ## 탐지 기준과 점수
 
@@ -53,7 +53,7 @@ flowchart LR
 - 요청 수만 세는 규칙은 적은 수의 탐색 요청을 놓칩니다. Day 3에서 놓친 09:20의 스캐너 경로 요청은 Day 4의 경로 스캔 규칙으로 잡았습니다.
 - 규칙을 조정한 뒤에도 미탐 1개가 남았습니다 (seoyeon의 권한 없는 정산 조회).
 - Day 5 오후 Docker 출력과 `logs/web_404.log`는 실습 안내서의 예시이고 실제 실행 결과가 아닙니다.
-- Day 6 파이프라인은 `--offline`으로만 확인했고 Gemini 요약은 실제로 받지 않았습니다.
+- Day 6 파이프라인은 `--offline`으로만 확인했고 Gemini 요약은 실제로 받지 않았습니다. API 키 없이 `--offline` 없이 실행하면 3건 모두 요약 실패로 대체되는 것까지 확인했습니다.
 - `alerts.json`은 Day 3 출력 파일과 Day 5 실습 데이터가 같은 이름을 씁니다. `day03_6-1_run.py`를 다시 실행하면 Day 5 데이터가 덮어써져 Day 5 실습이 오류로 멈춥니다.
 - 웹 로그의 시간대(`+0900`)를 떼고 합칩니다. 세 로그 모두 한국 시간이라고 보고 처리합니다.
 
@@ -65,12 +65,11 @@ pip install pandas requests
 python day02_4-1_run.py        # 로그 3종류 정규화 → normalized_events.json
 python day04_6-1_run.py        # 탐지 · 연결 · 위험 점수 → day03_risk_scores.json
 python day05_4-1_run.py        # 오탐 · 미탐 다시 세기
-python pipeline.py --offline   # 통합 파이프라인, AI 호출 없이 → day06_report.json
+python day06_3-1_run.py --offline   # 통합 파이프라인, AI 호출 없이 → day06_report.json
 ```
 
 Gemini 요약까지 받으려면 저장소 루트의 `.env`에 `GEMINI_API_KEY`를 넣고 `--offline` 없이 실행합니다.
 
-Day 6의 `day06_2-1_run.py`는 점수 기록 중 low가 아닌 상위 3개 대상을 Gemini로 요약합니다. `day06_3-1_run.py`는 이벤트 탐지·점수화·요약을 통합 실행해 `day06_report.json`을 저장합니다. Gemini 요약을 사용할 때는 저장소 루트의 `.env`에 `GEMINI_API_KEY`를 설정한 뒤 실행합니다. API 호출 없이 확인하려면 두 실행 파일에 `--offline`을 붙입니다.
 
 ## 참고
 
