@@ -50,27 +50,17 @@
     {
       "entity": "dami",
       "status": "skipped",
-      "summary": "AI 호출 생략 — dami는 60점 (high)이며, 탐지 규칙은 퇴사한 계정입니다."
+      "summary": "AI 호출 생략 — 대상 dami: 60점 (high), 탐지 규칙: 퇴사한 계정."
     },
     {
       "entity": "seoyeon",
       "status": "skipped",
-      "summary": "AI 호출 생략 — seoyeon는 45점 (mid)이며, 탐지 규칙은 평소와 다른 IP, 대량 다운로드입니다."
+      "summary": "AI 호출 생략 — 대상 seoyeon: 45점 (mid), 탐지 규칙: 평소와 다른 IP, 대량 다운로드."
     },
     {
       "entity": "gaeun",
       "status": "skipped",
-      "summary": "AI 호출 생략 — gaeun는 40점 (mid)이며, 탐지 규칙은 규칙은 허용인데 서버가 거절, 여러 로그 연결입니다."
-    },
-    {
-      "entity": "jiwoo",
-      "status": "skipped",
-      "summary": "AI 호출 생략 — jiwoo는 35점 (mid)이며, 탐지 규칙은 업무 시간 밖 로그인, 평소와 다른 IP입니다."
-    },
-    {
-      "entity": "198.51.100.90",
-      "status": "skipped",
-      "summary": "AI 호출 생략 — 198.51.100.90는 30점 (low)이며, 탐지 규칙은 경로 스캔입니다."
+      "summary": "AI 호출 생략 — 대상 gaeun: 40점 (mid), 탐지 규칙: 규칙은 허용인데 서버가 거절, 여러 로그 연결."
     }
   ]
 }
