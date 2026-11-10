@@ -49,18 +49,18 @@
   "summaries": [
     {
       "entity": "dami",
-      "status": "skipped",
-      "summary": "AI 호출 생략 — 대상 dami: 60점 (high), 탐지 규칙: 퇴사한 계정."
+      "status": "ok",
+      "summary": "대상 dami의 계정에서 퇴사자 계정으로 서버에 요청한 내용이 탐지되어 high 등급(60점)으로 확인되었습니다. 점수와 등급은 우선 확인 순서이므로, 해당 계정의 서버 요청 경위를 상세히 점검할 것을 제안합니다."
     },
     {
       "entity": "seoyeon",
-      "status": "skipped",
-      "summary": "AI 호출 생략 — 대상 seoyeon: 45점 (mid), 탐지 규칙: 평소와 다른 IP, 대량 다운로드."
+      "status": "ok",
+      "summary": "대상 seoyeon의 계정에서 평소와 다른 IP로 SaaS에 접속한 뒤 파일을 대량 다운로드한 정황이 탐지되어 우선 확인이 필요합니다. 보안 관제를 위해 해당 접속 IP와 대량 다운로드된 파일의 상세 내역을 확인할 것을 제안합니다."
     },
     {
       "entity": "gaeun",
-      "status": "skipped",
-      "summary": "AI 호출 생략 — 대상 gaeun: 40점 (mid), 탐지 규칙: 규칙은 허용인데 서버가 거절, 여러 로그 연결."
+      "status": "ok",
+      "summary": "대상 'gaeun'은 등급 mid, 40점으로 탐지되어 규칙상 허용된 요청의 서버 거절 및 단시간 내 복수 이벤트가 확인되었습니다. 점수와 등급은 우선 확인 순서이므로 해당 로그에 대한 추가적인 상세 분석을 제안합니다."
     }
   ]
 }
