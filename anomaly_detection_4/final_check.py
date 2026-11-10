@@ -1,6 +1,6 @@
 import pandas as pd
 
-ALERTS_PATH = "alerts.json"
+ALERTS_PATH = "tuning_alerts.json"  # Day 3 출력(alerts.json)과 겹치지 않게 분리
 LOGIN_ALERTS_PATH = "login_alerts.json"
 PROBLEMS_PATH = "problems.json"
 IP_RULE = "SaaS 평소와 다른 IP"

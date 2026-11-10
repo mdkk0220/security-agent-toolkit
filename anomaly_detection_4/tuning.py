@@ -1,6 +1,6 @@
 import pandas as pd
 
-ALERTS_PATH = "alerts.json"
+ALERTS_PATH = "tuning_alerts.json"  # Day 3 출력(alerts.json)과 겹치지 않게 분리
 IP_RULE = "SaaS 평소와 다른 IP"
 TRUSTED_IPS = ["203.0.113.80"]
 
