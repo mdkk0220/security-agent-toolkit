@@ -1,0 +1,11 @@
+{
+  "allowlist_ips": ["203.0.113.80", "192.0.2.10"],
+  "vip_accounts": ["gaeun"],
+  "grade_points": {"high": 2, "mid": 1, "low": 0},
+  "vip_points": 3,
+  "shared_ip_points": 2,
+  "shared_ip_limit": 2,
+  "many_targets_points": 2,
+  "many_targets_limit": 3,
+  "approval_score": 3
+}

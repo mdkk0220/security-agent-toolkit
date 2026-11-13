@@ -1,0 +1,58 @@
+[
+  {
+    "id": "REQ-1",
+    "incident": "INC-311",
+    "action": "계정 잠금",
+    "target": "dami",
+    "decision": "자동"
+  },
+  {
+    "id": "REQ-2",
+    "incident": "INC-312",
+    "action": "계정 잠금",
+    "target": "gaeun",
+    "decision": "승인 필요"
+  },
+  {
+    "id": "REQ-3",
+    "incident": "INC-313",
+    "action": "IP 차단",
+    "target": "203.0.113.80",
+    "decision": "차단 금지"
+  },
+  {
+    "id": "REQ-4",
+    "incident": "INC-314",
+    "action": "IP 차단",
+    "target": "198.51.100.45",
+    "decision": "자동"
+  },
+  {
+    "id": "REQ-5",
+    "incident": "INC-315",
+    "action": "IP 차단",
+    "target": "198.51.100.77",
+    "decision": "승인 필요"
+  },
+  {
+    "id": "REQ-6",
+    "incident": "INC-316",
+    "action": "계정 잠금",
+    "target": "minsu",
+    "decision": "승인 필요"
+  },
+  {
+    "id": "REQ-7",
+    "incident": "INC-317",
+    "action": "세션 종료",
+    "target": "hana",
+    "decision": "자동"
+  },
+  {
+    "id": "REQ-8",
+    "incident": "INC-318",
+    "action": "IP 차단",
+    "target": "192.0.2.10",
+    "decision": "차단 금지"
+  }
+]

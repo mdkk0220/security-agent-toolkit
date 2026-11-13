@@ -1,0 +1,9 @@
+[
+  {"case": "high 등급 한 명", "expected": "자동", "request": {"id": "T-1", "action": "계정 잠금", "target": "dami", "grade": "high", "users_on_ip": 0, "target_count": 1}},
+  {"case": "VIP 계정", "expected": "승인 필요", "request": {"id": "T-2", "action": "계정 잠금", "target": "gaeun", "grade": "low", "users_on_ip": 0, "target_count": 1}},
+  {"case": "함께 쓰는 IP", "expected": "승인 필요", "request": {"id": "T-3", "action": "IP 차단", "target": "198.51.100.77", "grade": "mid", "users_on_ip": 2, "target_count": 1}},
+  {"case": "대상 4개", "expected": "승인 필요", "request": {"id": "T-4", "action": "계정 잠금", "target": "minsu", "grade": "mid", "users_on_ip": 0, "target_count": 4}},
+  {"case": "대상 3개", "expected": "자동", "request": {"id": "T-5", "action": "계정 잠금", "target": "minsu", "grade": "mid", "users_on_ip": 0, "target_count": 3}},
+  {"case": "허용 목록 IP", "expected": "차단 금지", "request": {"id": "T-6", "action": "IP 차단", "target": "203.0.113.80", "grade": "high", "users_on_ip": 4, "target_count": 1}},
+  {"case": "점검 서버", "expected": "차단 금지", "request": {"id": "T-7", "action": "IP 차단", "target": "192.0.2.10", "grade": "low", "users_on_ip": 0, "target_count": 1}}
+]

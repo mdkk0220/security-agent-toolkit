@@ -1,0 +1,8 @@
+[
+  {"action": "계정 잠금", "impact": 3, "likelihood": 2, "controls": ["승인 게이트", "되돌리기", "감사 기록", "VIP 예외"]},
+  {"action": "세션 종료", "impact": 3, "likelihood": 2, "controls": ["감사 기록"]},
+  {"action": "IP 차단", "impact": 3, "likelihood": 2, "controls": ["허용 목록", "승인 게이트", "자동 해제", "되돌리기", "감사 기록"]},
+  {"action": "티켓 자동 작성", "impact": 1, "likelihood": 2, "controls": ["병합", "감사 기록"]},
+  {"action": "담당자 알림", "impact": 1, "likelihood": 3, "controls": ["알림 간격", "재시도"]},
+  {"action": "상급자 에스컬레이션", "impact": 2, "likelihood": 1, "controls": ["같은 단계 한 번"]}
+]

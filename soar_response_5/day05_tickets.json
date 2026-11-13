@@ -1,0 +1,9 @@
+[
+  {"id": "TCK-1", "incidents": ["INC-201", "INC-205", "INC-209"], "entity": "dami", "rule": "퇴사한 계정", "grade": "high", "status": "해결", "created_at": 0, "sla_due": 15, "acked_at": 10, "resolved_at": 45},
+  {"id": "TCK-2", "incidents": ["INC-202", "INC-206"], "entity": "198.51.100.90", "rule": "경로 스캔", "grade": "low", "status": "열림", "created_at": 3, "sla_due": 243, "acked_at": -1, "resolved_at": -1},
+  {"id": "TCK-3", "incidents": ["INC-203"], "entity": "gaeun", "rule": "규칙은 허용인데 서버가 거절", "grade": "mid", "status": "해결", "created_at": 8, "sla_due": 68, "acked_at": 80, "resolved_at": 120},
+  {"id": "TCK-4", "incidents": ["INC-204"], "entity": "seoyeon", "rule": "대량 다운로드", "grade": "mid", "status": "확인 중", "created_at": 12, "sla_due": 72, "acked_at": 140, "resolved_at": -1},
+  {"id": "TCK-5", "incidents": ["INC-207"], "entity": "203.0.113.250", "rule": "경로 스캔", "grade": "low", "status": "열림", "created_at": 30, "sla_due": 270, "acked_at": -1, "resolved_at": -1},
+  {"id": "TCK-6", "incidents": ["INC-208"], "entity": "hana", "rule": "업무 시간 밖 로그인", "grade": "mid", "status": "해결", "created_at": 35, "sla_due": 95, "acked_at": 90, "resolved_at": 130},
+  {"id": "TCK-7", "incidents": ["INC-210", "INC-211"], "entity": "dami", "rule": "퇴사한 계정", "grade": "high", "status": "확인 중", "created_at": 95, "sla_due": 110, "acked_at": 105, "resolved_at": -1}
+]

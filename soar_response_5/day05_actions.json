@@ -1,0 +1,12 @@
+[
+  {"incident": "INC-201", "action": "계정 잠금", "target": "dami", "before": "잠기지 않음", "after": "잠김"},
+  {"incident": "INC-201", "action": "세션 종료", "target": "dami", "before": "세션 2개", "after": "세션 0개"},
+  {"incident": "INC-202", "action": "IP 차단", "target": "198.51.100.90", "before": "차단되지 않음", "after": "차단됨"},
+  {"incident": "INC-205", "action": "계정 잠금", "target": "dami", "before": "잠김", "after": "잠김"},
+  {"incident": "INC-206", "action": "IP 차단", "target": "198.51.100.90", "before": "차단됨", "after": "차단됨"},
+  {"incident": "INC-207", "action": "IP 차단", "target": "203.0.113.250", "before": "차단되지 않음", "after": "차단되지 않음 (확인 실패)"},
+  {"incident": "INC-209", "action": "계정 잠금", "target": "dami", "before": "잠김", "after": "잠김"},
+  {"incident": "INC-210", "action": "계정 잠금", "target": "dami", "before": "잠김", "after": "잠김"},
+  {"incident": "INC-211", "action": "계정 잠금", "target": "dami", "before": "잠김", "after": "잠김"},
+  {"incident": "INC-212", "action": "계정 잠금", "target": "yuna", "before": "잠기지 않음", "after": "잠김"}
+]

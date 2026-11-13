@@ -1,0 +1,17 @@
+{
+  "locked_users": [
+    "junho",
+    "dami"
+  ],
+  "blocked_ips": [],
+  "block_expiry": {},
+  "clock": 0,
+  "sessions": {
+    "dami": [],
+    "jiwoo": [],
+    "junho": [],
+    "hana": [
+      "S-601"
+    ]
+  }
+}

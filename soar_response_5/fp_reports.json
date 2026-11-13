@@ -1,0 +1,4 @@
+[
+  {"incident": "INC-301", "reported_at": 20, "reporter": "영업팀장", "reason": "jiwoo 는 출장 중이고 출장 등록이 되어 있다"},
+  {"incident": "INC-202", "reported_at": 40, "reporter": "인프라팀", "reason": "198.51.100.90 은 회사가 계약한 점검 업체의 스캐너 IP 다"}
+]
